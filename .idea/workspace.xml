@@ -2,92 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d9944752-2956-4f15-b8f5-033002a04f1c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/apple-touch-icon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/apple-touch-icon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/favicon.ico" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/favicon.ico" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/tile-wide.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/tile-wide.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/tile.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/tile.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.editorconfig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/.editorconfig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/.editorconfig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitattributes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/.gitattributes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/.gitattributes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/img/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/img/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/.htaccess" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.jscsrc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.jshintrc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/.name" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.travis.yml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/404.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/404.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CHANGELOG.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CONTRIBUTING.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LICENSE.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/LICENSE.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/doc/TOC.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/doc/TOC.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/browserconfig.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/browserconfig.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/crossdomain.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/crossdomain.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/doc/css.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/doc/css.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/data3-sct.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/data3.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/doc/extend.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/doc/extend.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/doc/faq.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/doc/faq.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/file_content.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/file_existence.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/flare.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/flare2.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gulpfile.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/doc/html.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/doc/html.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/humans.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/humans.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/js/vendor/jquery-1.11.3.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/doc/js.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/doc/js.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/css/main.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/css/main.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/js/main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/doc/misc.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/doc/misc.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/js/vendor/modernizr-2.8.3.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/vendor/modernizr-2.8.3.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/css/normalize.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/js/plugins.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/plugins.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/robots.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/robots.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/sct-data.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/sct-descriptive-statistics-report.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/css/style.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/terrmap-test2.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/treemap-style.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/treemap-test1.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/treemap-test3.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/doc/usage.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/doc/usage.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/.gitignore" afterPath="$PROJECT_DIR$/src/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="sct-descriptive-statistics.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -108,15 +24,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="treemap-test3.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="treemap-test3.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/treemap-test3.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
+            <state vertical-scroll-proportion="-0.0">
               <caret line="225" column="20" selection-start-line="225" selection-start-column="10" selection-end-line="225" selection-end-column="20" />
               <folding>
                 <element signature="n#style#0;n#h3#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#p#2;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.07462686">
+              <caret line="2" column="5" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -167,6 +93,7 @@
         <option value="$PROJECT_DIR$/../sct-descriptive-statistics/src/treemap-test3.html" />
         <option value="$PROJECT_DIR$/../sct-descriptive-statistics/src/data3-sct.json" />
         <option value="$PROJECT_DIR$/src/treemap-test3.html" />
+        <option value="$PROJECT_DIR$/src/.gitignore" />
       </list>
     </option>
   </component>
@@ -334,14 +261,22 @@
       <option name="number" value="Default" />
       <updated>1443816482021</updated>
     </task>
+    <task id="LOCAL-00001" summary="First commit">
+      <created>1444072389758</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1444072389758</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="773" extended-state="6" />
     <editor active="false" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32892805" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32892805" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -370,6 +305,12 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="First commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="First commit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -415,6 +356,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.2388535">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -422,6 +364,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -445,6 +388,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -452,6 +396,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -467,6 +412,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.875">
           <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -482,6 +428,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-25.041666">
           <caret line="191" column="1" selection-start-line="191" selection-start-column="1" selection-end-line="191" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -517,6 +464,14 @@
             <element signature="n#style#0;n#h3#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#p#2;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.07462686">
+          <caret line="2" column="5" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
