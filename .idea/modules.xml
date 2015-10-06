@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$USER_HOME$/WebStormProjects/sct-descriptive-statistics-report/.idea/sct-descriptive-statistics-report.iml" filepath="$USER_HOME$/WebStormProjects/sct-descriptive-statistics-report/.idea/sct-descriptive-statistics-report.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/sct-descriptive-statistics-report.iml" filepath="$PROJECT_DIR$/.idea/sct-descriptive-statistics-report.iml" />
     </modules>
   </component>
 </project>
