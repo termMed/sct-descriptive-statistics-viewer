@@ -67,8 +67,14 @@
 
 <div>
     <select>
-        <option value="descendantCount">Simple descendants count</option>
+        <option value="descendantCount">Descendants count</option>
+        <option value="reactivatedCount">Reactivated concepts</option>
         <option value="newConceptsCount">New concepts</option>
+        <option value="changedFSNCount">Changed FSN</option>
+        <option value="inactDescrCount">Inactivated descriptions</option>
+        <option value="newDescrCount">New descriptions</option>
+        <option value="reactDescrCount">Reactivated descriptions</option>
+        <!--<option value="changedAccepCount">Changed acceptabilitiy</option>-->
     </select>
 </div>
 
@@ -228,10 +234,12 @@
                 d3.select(window).on("click", function() { transition(root); });
 
                 d3.select("select").on("change", function() {
-                    initialize(root);
+                    //initialize(root);
                     accumulate(root, this.value);
                     layout(root);
-                    display(root);
+                    transition(root);
+                    //layout(root);
+                    //display(root);
                 });
 
                 function transition(d) {
