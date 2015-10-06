@@ -1,44 +1,41 @@
 {
-  "devDependencies": {
-    "apache-server-configs": "2.14.0",
-    "archiver": "^0.14.3",
-    "del": "^1.1.1",
-    "glob": "^5.0.5",
-    "gulp": "^3.8.11",
-    "gulp-autoprefixer": "^2.1.0",
-    "gulp-header": "^1.2.2",
-    "gulp-jscs": "^1.5.1",
-    "gulp-jshint": "^1.9.2",
-    "gulp-load-plugins": "^0.10.0",
-    "gulp-rename": "^1.2.0",
-    "gulp-replace": "^0.5.3",
-    "jquery": "1.11.3",
-    "jshint-stylish": "^1.0.1",
-    "mocha": "^2.2.4",
-    "normalize.css": "3.0.3",
-    "run-sequence": "^1.0.2"
-  },
-  "engines": {
-    "node": ">=0.10.0"
-  },
-  "h5bp-configs": {
-    "directories": {
-      "archive": "archive",
-      "dist": "dist",
-      "src": "src",
-      "test": "test"
-    }
-  },
-  "homepage": "https://html5boilerplate.com/",
-  "license": {
-    "type": "MIT",
-    "url": "https://github.com/h5bp/html5-boilerplate/blob/master/LICENSE.txt"
-  },
-  "name": "html5-boilerplate",
-  "private": true,
+  "name": "sct-descriptive-statistics",
+  "version": "1.0.0",
+  "description": "sct-descriptive-statistics",
+  "main": "index.js",
   "scripts": {
-    "build": "gulp build",
-    "test": "gulp archive && mocha --reporter spec --timeout 5000"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "version": "5.2.0"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/termMed/snomed-interaction-components.git"
+  },
+  "author": "termMed IT",
+  "license": "Apache 2",
+  "bugs": {
+    "url": "https://github.com/termMed/snomed-interaction-components/issues"
+  },
+  "homepage": "https://github.com/termMed/snomed-interaction-components",
+  "dependencies": {
+    "browserify": "^7.0.0",
+    "chalk": "^0.5.1",
+    "grunt-cli": "^0.1.13",
+    "promised-redmine": "^0.3.0",
+    "request": "^2.49.0"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-bump": "0.0.14",
+    "grunt-contrib-clean": "^0.5.0",
+    "grunt-contrib-concat": "^0.4.0",
+    "grunt-contrib-copy": "^0.5.0",
+    "grunt-contrib-cssmin": "^0.10.0",
+    "grunt-contrib-handlebars": "^0.8.0",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-uglify": "^0.5.0",
+    "grunt-conventional-changelog": "^1.1.0",
+    "grunt-release": "^0.7.0",
+    "grunt-sonar-runner": "^2.4.3",
+    "jshint-stylish": "^0.4.0"
+  }
 }
