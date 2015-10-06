@@ -67,8 +67,8 @@
 
 <div>
     <select>
-        <option value="count">Simple descendants count</option>
-        <option value="retired concepts">Retired concepts</option>
+        <option value="descendantCount">Simple descendants count</option>
+        <option value="newConceptsCount">New concepts</option>
     </select>
 </div>
 
@@ -151,7 +151,12 @@
             // the children being overwritten when when layout is computed.
             function accumulate(d, field) {
                 //console.log(d);
-                d._children = d.children;
+                if (d._children) {
+                    d.children = d._children;
+                }
+                if (d.children) {
+                    d._children = d.children;
+                }
                 d.value = d[field];
                 d.children.forEach(function(child) {
                     accumulate(child, field)
@@ -223,8 +228,10 @@
                 d3.select(window).on("click", function() { transition(root); });
 
                 d3.select("select").on("change", function() {
+                    initialize(root);
                     accumulate(root, this.value);
-                    transition(root);
+                    layout(root);
+                    display(root);
                 });
 
                 function transition(d) {
@@ -278,8 +285,8 @@
 
             function name(d) {
                 return d.parent
-                    ? name(d.parent) + "." + d.name
-                    : d.name;
+                    ? name(d.parent) + "." + d.name + " (" + d.value + ")"
+                    : d.name + " (" + d.value + ")";
             }
         });
 
