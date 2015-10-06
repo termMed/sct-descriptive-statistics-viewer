@@ -65,6 +65,13 @@
 
     <aside>Click any cell to zoom in, or the top orange label to zoom out.</aside>
 
+<div>
+    <select>
+        <option value="count">Simple descendants count</option>
+        <option value="retired concepts">Retired concepts</option>
+    </select>
+</div>
+
 <p>Treemaps are a form of <a href="http://mbostock.github.com/d3/ex/treemap.html">space</a><a href="http://mbostock.github.com/d3/ex/pack.html">-filling</a> <a href="http://mbostock.github.com/d3/ex/sunburst.html">layout</a> where the area of each rectangle is proportional to its value. This example shows the size of files in a source tree.
 
 <p>Treemaps visualize hierarchical data, but since often only the leaf nodes (files rather than folders) are drawn, it can be difficult to see the hierarchy. <a href="http://en.wikipedia.org/wiki/File:Tree_Map.png">Padding</a> is sometimes used to show the hierarchy via containment, though this introduces area distortion. <a href="http://www.win.tue.nl/~vanwijk/ctm.pdf">Cushion gradients</a> also indicate hierarchy, but are somewhat unintuitive (or perhaps just ugly).
@@ -125,9 +132,9 @@
             .attr("y", 6 - margin.top)
             .attr("dy", ".75em");
 
-        d3.json("flare.json", function(root) {
+        d3.json("Hierarchy_138875005.json", function(root) {
             initialize(root);
-            accumulate(root);
+            accumulate(root, "descendantCount");
             layout(root);
             display(root);
 
@@ -142,10 +149,18 @@
             // treemap layout, but not here because of our custom implementation.
             // We also take a snapshot of the original children (_children) to avoid
             // the children being overwritten when when layout is computed.
-            function accumulate(d) {
-                return (d._children = d.children)
-                    ? d.value = d.children.reduce(function(p, v) { return p + accumulate(v); }, 0)
-                    : d.value;
+            function accumulate(d, field) {
+                //console.log(d);
+                d._children = d.children;
+                d.value = d[field];
+                d.children.forEach(function(child) {
+                    accumulate(child, field)
+                });
+                //console.log(d.value);
+                //console.log(d.children.reduce(function(p, v) { return p + accumulate(v, field);},0));
+//                return (d._children = d.children)
+//                    ? d.value = d.children.reduce(function(p, v) { return p + accumulate(v, field); }, 0)
+//                    : d.value;
             }
 
             // Compute the treemap layout recursively such that each group of siblings
@@ -202,8 +217,15 @@
 
                 g.append("text")
                     .attr("dy", ".75em")
-                    .text(function(d) { return d.name; })
+                    .text(function(d) { return d.name + ": " + d.value; })
                     .call(text);
+
+                d3.select(window).on("click", function() { transition(root); });
+
+                d3.select("select").on("change", function() {
+                    accumulate(root, this.value);
+                    transition(root);
+                });
 
                 function transition(d) {
                     if (transitioning || !d) return;
