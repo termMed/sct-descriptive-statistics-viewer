@@ -49,14 +49,109 @@
             fill: #bbb;
         }
 
+        .node {
+            border: solid 1px white;
+            font: 10px sans-serif;
+            line-height: 12px;
+            overflow: hidden;
+            position: absolute;
+            text-indent: 2px;
+        }
+
+        .c3-line, .c3-focused {stroke-width: 3px !important;}
+        .c3-bar {stroke: white !important; stroke-width: 1;}
+        .c3 text { font-size: 12px; color: grey;}
+        .tick line {stroke: white;}
+        .c3-axis path {stroke: grey;}
+        .c3-circle { opacity: 1 !important; }
+
+        .pace {
+            -webkit-pointer-events: none;
+            pointer-events: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        .pace-inactive {
+            display: none;
+        }
+
+        .pace .pace-progress {
+            background: #29d;
+            position: fixed;
+            z-index: 2000;
+            top: 0;
+            right: 100%;
+            width: 100%;
+            height: 2px;
+        }
+
+        .pace .pace-progress-inner {
+            display: block;
+            position: absolute;
+            right: 0px;
+            width: 100px;
+            height: 100%;
+            box-shadow: 0 0 10px #29d, 0 0 5px #29d;
+            opacity: 1.0;
+            -webkit-transform: rotate(3deg) translate(0px, -4px);
+            -moz-transform: rotate(3deg) translate(0px, -4px);
+            -ms-transform: rotate(3deg) translate(0px, -4px);
+            -o-transform: rotate(3deg) translate(0px, -4px);
+            transform: rotate(3deg) translate(0px, -4px);
+        }
+
+        .pace .pace-activity {
+            display: block;
+            position: fixed;
+            z-index: 2000;
+            top: 15px;
+            right: 15px;
+            width: 14px;
+            height: 14px;
+            border: solid 2px transparent;
+            border-top-color: #29d;
+            border-left-color: #29d;
+            border-radius: 10px;
+            -webkit-animation: pace-spinner 400ms linear infinite;
+            -moz-animation: pace-spinner 400ms linear infinite;
+            -ms-animation: pace-spinner 400ms linear infinite;
+            -o-animation: pace-spinner 400ms linear infinite;
+            animation: pace-spinner 400ms linear infinite;
+        }
+
+        @-webkit-keyframes pace-spinner {
+            0% { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+            100% { -webkit-transform: rotate(360deg); transform: rotate(360deg); }
+        }
+        @-moz-keyframes pace-spinner {
+            0% { -moz-transform: rotate(0deg); transform: rotate(0deg); }
+            100% { -moz-transform: rotate(360deg); transform: rotate(360deg); }
+        }
+        @-o-keyframes pace-spinner {
+            0% { -o-transform: rotate(0deg); transform: rotate(0deg); }
+            100% { -o-transform: rotate(360deg); transform: rotate(360deg); }
+        }
+        @-ms-keyframes pace-spinner {
+            0% { -ms-transform: rotate(0deg); transform: rotate(0deg); }
+            100% { -ms-transform: rotate(360deg); transform: rotate(360deg); }
+        }
+        @keyframes pace-spinner {
+            0% { transform: rotate(0deg); transform: rotate(0deg); }
+            100% { transform: rotate(360deg); transform: rotate(360deg); }
+        }
+
     </style>
     <head>
 
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.min.css">
         <!-- Include roboto.css to use the Roboto web font, material.css to include the theme and ripples.css to style the ripple effect -->
         <link href="css/roboto.min.css" rel="stylesheet">
         <link href="css/material.min.css" rel="stylesheet">
         <link href="css/ripples.min.css" rel="stylesheet">
+        <link href="css/pivot.css" rel="stylesheet">
 
     </head>
 
@@ -78,6 +173,7 @@
                     </div>
                     <div class="navbar-collapse collapse navbar-responsive-collapse">
                         <ul class="nav navbar-nav">
+                            <li><a href="javascript:loadOverview()">Overview</a></li>
                             <!--<li class="active"><a href="javascript:void(0)">Active</a></li>-->
                             <!--<li><a href="javascript:void(0)">Link</a></li>-->
                             <li class="dropdown">
@@ -93,6 +189,7 @@
                                 </ul>
                             </li>
                             <li><a href="javascript:loadTreemap()">TreeMaps</a></li>
+                            <li><a href="javascript:loadPivot()">Pivot</a></li>
                         </ul>
                         <!--<ul class="nav navbar-nav navbar-right">-->
                             <!--<li><a href="javascript:void(0)">Link</a></li>-->
@@ -116,13 +213,21 @@
             </div>
         </div>
         <!-- Your site ends -->
+        <script src="js/pace.min.js"></script>
 
         <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+        <script src="http://d3js.org/d3.v3.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.min.js"></script>
+
 
         <script src="js/ripples.min.js"></script>
         <script src="js/material.min.js"></script>
         <script src="js/handlebars-v1.3.0.js"></script>
+        <script src="js/pivot.min.js"></script>
+        <script src="js/d3_renderers.min.js"></script>
+        <script src="js/c3_renderers.min.js"></script>
 
         <!-- Handlebars templates -->
         <script src="views/compiled/templates.js"></script>
@@ -146,9 +251,42 @@
                 $("#main-panel").html(JST["material/views/treemap.hbs"](context));
                 initializeTreemap();
             }
+            function loadPivot() {
+                var context = {};
+                $("#main-panel").html(JST["material/views/pivot.hbs"](context));
+                initializePivot();
+            }
+            function loadOverview() {
+                var context = {};
+                $("#main-panel").html(JST["material/views/overview.hbs"](context));
+            }
+
+            function initializePivot() {
+                $.getJSON('data/ChangeList_20150731.json', function(response){
+                }).error(function(err) {
+                    console.log("Error", err);
+                }).complete(function(data) {
+                    //alert("second success"); })
+                    //.error(function(err) { alert("error"); })
+                    //.complete(function(data) {
+                    //.success(function(data) {
+                        //console.log(data);
+                    //var derivers = $.pivotUtilities.derivers;
+                    var renderers = $.extend($.pivotUtilities.renderers,$.pivotUtilities.d3_renderers);
+                    renderers = $.extend(renderers, $.pivotUtilities.c3_renderers);
+                    var dataObject = JSON.parse(data.responseText);
+                    $("#pivot").pivotUI(dataObject,
+                        {
+                            rows: ["semtag"],
+                            cols: ["designationChange"],
+                            rendererName: ["Heatmap"],
+                            renderers: renderers
+                        }
+                        );
+                    });
+            }
         </script>
 
-        <script src="http://d3js.org/d3.v3.min.js"></script>
         <script>
             function initializeTreemap() {
                 var margin = {top: 20, right: 0, bottom: 0, left: 0},
