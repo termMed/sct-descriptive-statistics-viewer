@@ -162,7 +162,7 @@
         <div class="container">
             <!--navBar-->
             <div class="bs-component">
-                <div class="navbar navbar-default">
+                <div class="navbar navbar-material-light-blue">
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
                             <span class="icon-bar"></span>
@@ -173,23 +173,27 @@
                     </div>
                     <div class="navbar-collapse collapse navbar-responsive-collapse">
                         <ul class="nav navbar-nav">
-                            <li><a href="javascript:loadOverview()">Overview</a></li>
+                            <li id="tab-overview"><a href="javascript:loadOverview()">Overview</a></li>
                             <!--<li class="active"><a href="javascript:void(0)">Active</a></li>-->
                             <!--<li><a href="javascript:void(0)">Link</a></li>-->
-                            <li class="dropdown">
+                            <li id="tab-reports" class="dropdown">
                                 <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Table Reports <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="javascript:loadNewconcepts()">New concepts</a></li>
-                                    <li><a href="javascript:void(0)">New descriptions</a></li>
-                                    <li><a href="javascript:void(0)">Changed Definition Status</a></li>
+                                    <li><a href="javascript:setReportsActive();loadGeneralReleaseStatistics()">General Release Statistics</a></li>
+                                    <li><a href="javascript:setReportsActive();loadExistingConceptsCount()">Changes on Existing concepts (count)</a></li>
+                                    <li><a href="javascript:setReportsActive();loadExistingConceptsPercent()">Changes on Existing concepts (percent)</a></li>
+                                    <li><a href="javascript:setReportsActive();loadNewConceptsStatistics()">New Concepts</a></li>
+                                    <li><a href="javascript:setReportsActive();loadRetiredConceptsStatistics()">Inactivated Concepts</a></li>
+                                    <!--<li><a href="javascript:void(0)">New descriptions</a></li>-->
+                                    <!--<li><a href="javascript:void(0)">Changed Definition Status</a></li>-->
                                     <!--<li class="divider"></li>-->
                                     <!--<li class="dropdown-header">Dropdown header</li>-->
                                     <!--<li><a href="javascript:void(0)">Separated link</a></li>-->
                                     <!--<li><a href="javascript:void(0)">One more separated link</a></li>-->
                                 </ul>
                             </li>
-                            <li><a href="javascript:loadTreemap()">TreeMaps</a></li>
-                            <li><a href="javascript:loadPivot()">Pivot</a></li>
+                            <!--<li><a href="javascript:loadTreemap()">TreeMaps</a></li>-->
+                            <li id="tab-pivot"><a href="javascript:loadPivot()">Pivot</a></li>
                         </ul>
                         <!--<ul class="nav navbar-nav navbar-right">-->
                             <!--<li><a href="javascript:void(0)">Link</a></li>-->
@@ -228,6 +232,7 @@
         <script src="js/pivot.min.js"></script>
         <script src="js/d3_renderers.min.js"></script>
         <script src="js/c3_renderers.min.js"></script>
+        <script lang="javascript" src="js/xlsx.core.min.js"></script>
 
         <!-- Handlebars templates -->
         <script src="views/compiled/templates.js"></script>
@@ -239,12 +244,146 @@
                 loadHome();
             });
             function loadHome() {
+                $(".navbar-nav li").removeClass("active");
                 var context = {};
                 $("#main-panel").html(JST["material/views/home.hbs"](context));
             }
-            function loadNewconcepts() {
-                var context = {};
-                $("#main-panel").html(JST["material/views/newConcepts.hbs"](context));
+            function loadGeneralReleaseStatistics() {
+                $.get( "data/GENERAL_RELEASE_STATISTICS.csv", function( response ) {
+                    //console.log("Data loaded 1");
+                }).done(function(response) {
+                    response = response.replace(/[\r|\r\n]/g, "\n");
+                    var allTextLines = response.split(/\n/);
+                    //console.log(allTextLines);
+                    var entries = allTextLines.shift().split(',');
+                    var lines = [];
+                    var headings = entries.splice(0,7);
+                    while (allTextLines.length>0) {
+                        var textLine = allTextLines.shift();
+                        entries = textLine.split(',');
+                        while (entries.length>0) {
+                            var tarr = {};
+                            for (var j=0; j<7; j++) {
+                                tarr[headings[j]] = entries.shift();
+                            }
+                            if (typeof tarr[headings[0]] != "undefined") {
+                                lines.push(tarr);
+                            }
+                        }
+                    };
+                    var context = {
+                        rows: lines
+                    };
+                    $("#main-panel").html(JST["material/views/generalReleaseStatistics.hbs"](context));
+                });
+            }
+            function loadExistingConceptsCount() {
+                $.get( "data/STATISTICS_ON_EXISTING_CONCEPTS_count.csv", function( response ) {
+                }).done(function(response) {
+                    response = response.replace(/[\r|\r\n]/g, "\n");
+                    var allTextLines = response.split(/\n/);
+                    var entries = allTextLines.shift().split(',');
+                    var lines = [];
+                    var headings = entries.splice(0,9);
+                    while (allTextLines.length>0) {
+                        var textLine = allTextLines.shift();
+                        entries = textLine.split(',');
+                        while (entries.length>0) {
+                            var tarr = {};
+                            for (var j=0; j<9; j++) {
+                                tarr[headings[j]] = entries.shift();
+                            }
+                            if (typeof tarr[headings[0]] != "undefined") {
+                                lines.push(tarr);
+                            }
+                        }
+                    };
+                    var context = {
+                        rows: lines
+                    };
+                    $("#main-panel").html(JST["material/views/existingConceptsCount.hbs"](context));
+                });
+            }
+            function loadExistingConceptsPercent() {
+                $.get( "data/STATISTICS_ON_EXISTING_CONCEPTS_percent.csv", function( response ) {
+                }).done(function(response) {
+                    response = response.replace(/[\r|\r\n]/g, "\n");
+                    var allTextLines = response.split(/\n/);
+                    var entries = allTextLines.shift().split(',');
+                    var lines = [];
+                    var headings = entries.splice(0,9);
+                    while (allTextLines.length>0) {
+                        var textLine = allTextLines.shift();
+                        entries = textLine.split(',');
+                        while (entries.length>0) {
+                            var tarr = {};
+                            for (var j=0; j<9; j++) {
+                                tarr[headings[j]] = entries.shift();
+                            }
+                            if (typeof tarr[headings[0]] != "undefined") {
+                                lines.push(tarr);
+                            }
+                        }
+                    };
+                    var context = {
+                        rows: lines
+                    };
+                    $("#main-panel").html(JST["material/views/existingConceptsPercent.hbs"](context));
+                });
+            }
+            function loadNewConceptsStatistics() {
+                $.get( "data/STATISTICS_ON_NEW_CONCEPTS.csv", function( response ) {
+                }).done(function(response) {
+                    response = response.replace(/[\r|\r\n]/g, "\n");
+                    var allTextLines = response.split(/\n/);
+                    var entries = allTextLines.shift().split(',');
+                    var lines = [];
+                    var headings = entries.splice(0,7);
+                    while (allTextLines.length>0) {
+                        var textLine = allTextLines.shift();
+                        entries = textLine.split(',');
+                        while (entries.length>0) {
+                            var tarr = {};
+                            for (var j=0; j<7; j++) {
+                                tarr[headings[j]] = entries.shift();
+                            }
+                            if (typeof tarr[headings[0]] != "undefined") {
+                                lines.push(tarr);
+                            }
+                        }
+                    };
+                    var context = {
+                        rows: lines
+                    };
+                    $("#main-panel").html(JST["material/views/newConcepts.hbs"](context));
+                });
+            }
+            function loadRetiredConceptsStatistics() {
+                $.get( "data/STATISTICS_ON_RETIRED_CONCEPTS.csv", function( response ) {
+                }).done(function(response) {
+                    response = response.replace(/[\r|\r\n]/g, "\n");
+                    var allTextLines = response.split(/\n/);
+                    var entries = allTextLines.shift().split(',');
+                    var lines = [];
+                    var headings = entries.splice(0,12);
+                    while (allTextLines.length>0) {
+                        var textLine = allTextLines.shift();
+                        entries = textLine.split(',');
+                        while (entries.length>0) {
+                            var tarr = {};
+                            for (var j=0; j<12; j++) {
+                                tarr[headings[j]] = entries.shift();
+                            }
+                            if (typeof tarr[headings[0]] != "undefined") {
+                                lines.push(tarr);
+                            }
+                        }
+                    };
+                    var context = {
+                        rows: lines
+                    };
+                    $("#main-panel").html(JST["material/views/retiredConcepts.hbs"](context));
+                });
             }
             function loadTreemap() {
                 var context = {};
@@ -252,13 +391,23 @@
                 initializeTreemap();
             }
             function loadPivot() {
+                $(".navbar-nav li").removeClass("active");
+                $("#tab-pivot").addClass("active");
                 var context = {};
                 $("#main-panel").html(JST["material/views/pivot.hbs"](context));
                 initializePivot();
             }
             function loadOverview() {
+                $(".navbar-nav li").removeClass("active");
+                $("#tab-overview").addClass("active");
                 var context = {};
                 $("#main-panel").html(JST["material/views/overview.hbs"](context));
+                $("#overview-body").load("docs/SNOMEDCT_Quality_Evaluation_P1_Descriptive_Release_Statistics_20151123v0_9.html");
+            }
+
+            function setReportsActive() {
+                $(".navbar-nav li").removeClass("active");
+                $("#tab-reports").addClass("active");
             }
 
             function initializePivot() {
@@ -491,8 +640,6 @@
                     }
                 });
             }
-
-
         </script>
 
     </body>

@@ -3,7 +3,7 @@
         <div class="card-height-indicator"></div>
         <div class="card-content">
             <div class="card-body">
-                <h2>New Concepts Statistics</h2>
+                <h2>Changes on Existing Concepts - Counts</h2>
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="bs-component">
@@ -11,22 +11,26 @@
                                 <thead>
                                 <tr>
                                     <th>Hierarchy</th>
-                                    <th>Concept #</th>
-                                    <th>% of total</th>
-                                    <th>% of All new</th>
-                                    <th>% of new Suff Def</th>
-                                    <th>% of new Primitive</th>
+                                    <th>Any change</th>
+                                    <th>StatedDefChange</th>
+                                    <th>InferredDefChange</th>
+                                    <th>Primitive2SD</th>
+                                    <th>SD2Primitive</th>
+                                    <th>DescriptionChange</th>
+                                    <th>FSNChange</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 {{#each rows}}
                                     <tr class="small">
                                         <td>{{term}}</td>
-                                        <td class="text-right">{{NewConcepts}}</td>
-                                        <td class="text-right">{{PercentOfTotal}}%</td>
-                                        <td class="text-right">{{PercentOfAllNew}}%</td>
-                                        <td class="text-right">{{PercentOfNewSD}}%</td>
-                                        <td class="text-right">{{PercentOfNewP}}%</td>
+                                        <td class="text-right">{{AnyChange}}</td>
+                                        <td class="text-right">{{StatedDefChange}}</td>
+                                        <td class="text-right">{{InferredDefChange}}</td>
+                                        <td class="text-right">{{Primitive2SD}}</td>
+                                        <td class="text-right">{{SD2Primitive}}</td>
+                                        <td class="text-right">{{DescriptionChange}}</td>
+                                        <td class="text-right">{{FSNChange}}</td>
                                     </tr>
                                 {{/each}}
                                 </tbody>

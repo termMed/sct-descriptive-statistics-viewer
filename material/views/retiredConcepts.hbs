@@ -3,7 +3,7 @@
         <div class="card-height-indicator"></div>
         <div class="card-content">
             <div class="card-body">
-                <h2>New Concepts Statistics</h2>
+                <h2>Inactivated Concepts Statistics</h2>
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="bs-component">
@@ -13,20 +13,30 @@
                                     <th>Hierarchy</th>
                                     <th>Concept #</th>
                                     <th>% of total</th>
-                                    <th>% of All new</th>
-                                    <th>% of new Suff Def</th>
-                                    <th>% of new Primitive</th>
+                                    <th>% of All Inactive</th>
+                                    <th>% of Ambiguous</th>
+                                    <th>% of Duplicated</th>
+                                    <th>% of Erroneous</th>
+                                    <th>% of Not Stated</th>
+                                    <th>% of Outdated</th>
+                                    <th>% of Moved</th>
+                                    <th>% of Limited</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 {{#each rows}}
                                     <tr class="small">
                                         <td>{{term}}</td>
-                                        <td class="text-right">{{NewConcepts}}</td>
+                                        <td class="text-right">{{RetiredConcepts}}</td>
                                         <td class="text-right">{{PercentOfTotal}}%</td>
-                                        <td class="text-right">{{PercentOfAllNew}}%</td>
-                                        <td class="text-right">{{PercentOfNewSD}}%</td>
-                                        <td class="text-right">{{PercentOfNewP}}%</td>
+                                        <td class="text-right">{{PercentOfAllRetired}}%</td>
+                                        <td class="text-right">{{PercentOfAmbiguous}}%</td>
+                                        <td class="text-right">{{PercentOfDuplicated}}%</td>
+                                        <td class="text-right">{{PercentOfErroneous}}%</td>
+                                        <td class="text-right">{{PercentOfNotStated}}%</td>
+                                        <td class="text-right">{{PercentOfOutdated}}%</td>
+                                        <td class="text-right">{{PercentOfMoved}}%</td>
+                                        <td class="text-right">{{PercentOfLimited}}%</td>
                                     </tr>
                                 {{/each}}
                                 </tbody>
