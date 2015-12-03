@@ -7,7 +7,7 @@ For more information about the SNOMED CT Descriptive Statistics Project go to [t
 
 ## Quick start
 
-The content of the /www folder is ready to be served by any web server as static pages, no database is required.
+The content of the root folder is ready to be served by any web server as static pages, no database is required.
 
 Sample data is included for the initial installation.
 
@@ -36,7 +36,7 @@ reports can be updated to newer versions. The data format is CSV, comma sepparat
 
 The columns should match the columns in the provided sample files in:
 
-`www/data/...`
+`data/...`
 
 Included report files are:
 
