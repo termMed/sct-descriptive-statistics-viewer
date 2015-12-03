@@ -40,7 +40,7 @@ module.exports = function(grunt) {
                     namespace: "JST"
                 },
                 files: {
-                    "material/views/compiled/templates.js": "views/**/*.hbs"
+                    "views/compiled/templates.js": "views/**/*.hbs"
                 }
             }
         }
