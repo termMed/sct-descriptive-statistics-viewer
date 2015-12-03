@@ -151,7 +151,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<div class=\"col-md-11\">\n    <div class=\"jumbotron\">\n        <h1>SNOMED CT Descriptive Statistics</h1>\n        <p class=\"lead\">For 20160131 Release</p>\n        <p>This viewer presents a set of descriptive measures and statistics, obtained through automated queries, with the objective of providing information on content changes and temporal trends as a measurement of progress.</p>\n        <p><a class=\"btn btn-material-light-blue btn-lg\" href=\"http://www.ihtsdo.org\" target=\"_blank\" role=\"button\">Learn more</a></p>\n    </div>\n</div>\n";
+  return "<div class=\"col-md-11\">\n    <div class=\"jumbotron\">\n        <h1>SNOMED CT Descriptive Statistics</h1>\n        <p class=\"lead\">For 20160131 Release</p>\n        <p>This viewer presents a set of descriptive measures and statistics, obtained through automated queries, with the objective of providing information on content changes and temporal trends as a measurement of progress.</p>\n        <p><a class=\"btn btn-material-light-blue btn-lg\" href=\"javascript:loadOverview();\" role=\"button\">Learn more</a></p>\n        <div class=\"row\">\n            <div id=\"pieChart\"></div>\n        </div>\n        <div class=\"row\">\n            <div id=\"pieChart2\"></div>\n        </div>\n    </div>\n</div>\n";
   });
 
 this["JST"]["views/newConcepts.hbs"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -190,10 +190,10 @@ function program1(depth0,data) {
   return buffer;
   }
 
-  buffer += "<div class=\"col-md-12\">\n    <div class=\"card\">\n        <div class=\"card-height-indicator\"></div>\n        <div class=\"card-content\">\n            <div class=\"card-body\">\n                <h2>New Concepts Statistics</h2>\n                <div class=\"row\">\n                    <div class=\"col-lg-12\">\n                        <div class=\"bs-component\">\n                            <table class=\"table table-striped table-hover \">\n                                <thead>\n                                <tr>\n                                    <th>Hierarchy</th>\n                                    <th>Concept #</th>\n                                    <th>% of hierarchy</th>\n                                    <th>% of All new</th>\n                                    <th>% of new Suff Def</th>\n                                    <th>% of new Primitive</th>\n                                </tr>\n                                </thead>\n                                <tbody>\n                                ";
+  buffer += "<div class=\"col-md-12\">\n    <div class=\"card\">\n        <div class=\"card-height-indicator\"></div>\n        <div class=\"card-content\">\n            <div class=\"card-body\">\n                <h2>New Concepts Statistics</h2>\n                <div class=\"row\">\n                    <div class=\"col-lg-12\">\n                        <div class=\"bs-component\">\n                            <table class=\"table table-striped table-hover \">\n                                <thead>\n                                <tr>\n                                    <th>Hierarchy</th>\n                                    <th>Concept #</th>\n                                    <th>% of hierarchy <small>(*)</small></th>\n                                    <th>% of All new</th>\n                                    <th>% of new Suff Def</th>\n                                    <th>% of new Primitive</th>\n                                </tr>\n                                </thead>\n                                <tbody>\n                                ";
   stack1 = helpers.each.call(depth0, (depth0 && depth0.rows), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\n                                </tbody>\n                            </table>\n                        </div><!-- /example -->\n                    </div>\n                </div>\n            </div>\n            <footer class=\"card-footer\">\n                <!--<button class=\"btn btn-flat\">Share</button>-->\n                <!--<button class=\"btn btn-flat btn-warning\">Learn More</button>-->\n            </footer>\n        </div>\n    </div>\n</div>\n";
+  buffer += "\n                                </tbody>\n                                <tfoot>\n                                    <tr>\n                                        <td colspan=\"6\">(*) Percentage of existing concepts in hierarchy. For the root concept the value includes all SNOMED CT.</td>\n                                    </tr>\n                                </tfoot>\n                            </table>\n                        </div><!-- /example -->\n                    </div>\n                </div>\n            </div>\n            <footer class=\"card-footer\">\n                <!--<button class=\"btn btn-flat\">Share</button>-->\n                <!--<button class=\"btn btn-flat btn-warning\">Learn More</button>-->\n            </footer>\n        </div>\n    </div>\n</div>\n";
   return buffer;
   });
 
@@ -209,10 +209,15 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
 this["JST"]["views/pivot.hbs"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
-  
+  var buffer = "", stack1, helper, functionType="function", escapeExpression=this.escapeExpression;
 
 
-  return "<div class=\"col-md-12\">\n    <div class=\"card\">\n        <div class=\"card-height-indicator\"></div>\n        <div class=\"card-content\">\n            <div class=\"card-body\">\n                <div cass=\"container\">\n                    <h2>Pivot table</h2>\n                    <div id=\"pivot\"></div>\n                </div>\n            </div>\n            <footer class=\"card-footer\">\n                <!--<button class=\"btn btn-flat\">Share</button>-->\n                <!--<button class=\"btn btn-flat btn-warning\">Learn More</button>-->\n            </footer>\n        </div>\n    </div>\n</div>\n";
+  buffer += "<div class=\"col-md-12\">\n    <div class=\"card\">\n        <div class=\"card-height-indicator\"></div>\n        <div class=\"card-content\">\n            <div class=\"card-body\">\n                <div cass=\"container\">\n                    <h2>";
+  if (helper = helpers.title) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.title); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</h2>\n                    <div id=\"pivot\"></div>\n                </div>\n            </div>\n            <footer class=\"card-footer\">\n                <!--<button class=\"btn btn-flat\">Share</button>-->\n                <!--<button class=\"btn btn-flat btn-warning\">Learn More</button>-->\n            </footer>\n        </div>\n    </div>\n</div>\n";
+  return buffer;
   });
 
 this["JST"]["views/retiredConcepts.hbs"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
