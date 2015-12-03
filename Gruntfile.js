@@ -6,20 +6,10 @@ module.exports = function(grunt) {
     // Project configuration.
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
-        clean: ["dist", "material/views/compiled"],
+        clean: ["dist", "views/compiled"],
         concat: {
             js: {
                 src: [
-                    'js/conceptDetailsPlugin.js',
-                    'js/countryIcons.js',
-                    'js/drawConceptDiagram.js',
-                    'js/popover.js',
-                    'js/searchPlugin.js',
-                    'js/svgdiagrammingv2.js',
-                    'js/taxonomyPlugin.js',
-                    'js/refsetPlugin.js',
-                    'js/favoritesPlugin.js',
-                    'js/util.js',
                     'views/compiled/templates.js'
                 ],
                 dest: 'dist/js/<%= pkg.name %>-<%= pkg.version %>.js'
@@ -50,76 +40,10 @@ module.exports = function(grunt) {
                     namespace: "JST"
                 },
                 files: {
-                    "material/views/compiled/templates.js": "material/views/**/*.hbs"
-                }
-            }
-        },
-        bump: {
-            options: {
-                files: ['package.json'],
-                updateConfigs: [],
-                commit: true,
-                commitMessage: 'Release v%VERSION%',
-                commitFiles: ['-A'],
-                createTag: true,
-                tagName: 'v%VERSION%',
-                tagMessage: 'Version %VERSION%',
-                push: true,
-                pushTo: 'origin',
-                gitDescribeOptions: '--tags --always --abbrev=1 --dirty=-d'
-            }
-        },
-        release: {
-            options: {
-                bump: false, //default: true
-                npm: false, //default: true
-                npmtag: true, //default: no tag
-                github: {
-                    repo: 'termmed/snomed-interaction-components', //put your user/repo here
-                    usernameVar: 'GITHUB_USERNAME', //ENVIRONMENT VARIABLE that contains Github username
-                    passwordVar: 'GITHUB_PASSWORD' //ENVIRONMENT VARIABLE that contains Github password
-                }
-            }
-        },
-        jshint: {
-            all: ['js/**/*.js'],
-            options: {
-                reporter: require('jshint-stylish'),
-                reporterOutput: 'dist/jshint-output.txt'
-            }
-        },
-        changelog: {
-            options: {
-                // Task-specific options go here.
-            }
-        },
-        sonarRunner: {
-            analysis: {
-                options: {
-                    debug: true,
-                    separator: '\n',
-                    dryRun: false,
-                    sonar: {
-                        host: {
-                            url: 'http://localhost:9000'
-                        },
-                        jdbc: {
-                            url: 'jdbc:h2:tcp://localhost:9092/sonar',
-                            username: 'sonar',
-                            password: 'sonar'
-                        },
-
-                        projectKey: 'snomed-interaction-components-dev',
-                        projectName: 'termSpace',
-                        projectVersion: '0.10',
-                        sources: ['js'].join(','),
-                        language: 'js',
-                        sourceEncoding: 'UTF-8'
-                    }
+                    "material/views/compiled/templates.js": "views/**/*.hbs"
                 }
             }
         }
-
     });
 
     grunt.loadNpmTasks('grunt-contrib-clean');
@@ -128,19 +52,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-handlebars');
-    grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.loadNpmTasks('grunt-bump');
-    grunt.loadNpmTasks('grunt-conventional-changelog');
-    grunt.loadNpmTasks('grunt-release');
-    grunt.loadNpmTasks('grunt-sonar-runner');
 
     // Default task(s).
     grunt.registerTask('default', ['clean', 'handlebars', 'concat','uglify', 'cssmin']);
-
-    grunt.registerTask('releaseit', function(target) {
-        grunt.task.run([
-            'bump-only:' + target,
-            'default'
-        ]);
-    });
 };
