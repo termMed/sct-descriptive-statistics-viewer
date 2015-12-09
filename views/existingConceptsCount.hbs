@@ -3,7 +3,7 @@
         <div class="card-height-indicator"></div>
         <div class="card-content">
             <div class="card-body">
-                <h2>Changes on Existing Concepts - Counts</h2>
+                <h2>Counts of Changes to Existing Concepts by Change Type (*) and Hierarchy</h2>
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="bs-component">
@@ -11,13 +11,13 @@
                                 <thead>
                                 <tr>
                                     <th>Hierarchy</th>
-                                    <th>Any change</th>
-                                    <th>StatedDefChange</th>
-                                    <th>InferredDefChange</th>
-                                    <th>Primitive2SD</th>
-                                    <th>SD2Primitive</th>
-                                    <th>DescriptionChange</th>
-                                    <th>FSNChange</th>
+                                    <th>Any</th>
+                                    <th>Stated Defn</th>
+                                    <th>Inferred Defn</th>
+                                    <th>P to SD </th>
+                                    <th>SD to P</th>
+                                    <th>Description Change</th>
+                                    <th>FSN Change</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -34,6 +34,12 @@
                                     </tr>
                                 {{/each}}
                                 </tbody>
+                                <tfoot>
+                                    <tr class="small"><td colspan="8">(*) Stated Defn = Change to stated concept definition<br>
+                                        Inferred Defn = Change to inferred concept definition<br>
+                                        P to SD = Change in concept definition status from Primitive to Sufficiently Defined<br>
+                                        SD to P = Change in concept definition status Sufficiently Defined to Primitive</td></tr>
+                                </tfoot>
                             </table>
                         </div><!-- /example -->
                     </div>
